@@ -1,0 +1,216 @@
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 640 640"
+     width="640"
+     height="640">
+
+  <defs>
+    <!-- BRILHO DE FUNDO -->
+    <radialGradient id="ambient">
+      <stop offset="0%" stop-color="#7245ff" stop-opacity=".38"/>
+      <stop offset="55%" stop-color="#3154c8" stop-opacity=".12"/>
+      <stop offset="100%" stop-color="#101124" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- CORES DO PLANETA -->
+    <radialGradient id="planet" cx="28%" cy="22%" r="85%">
+      <stop offset="0%" stop-color="#c7eaff"/>
+      <stop offset="18%" stop-color="#8eaeff"/>
+      <stop offset="45%" stop-color="#7755dc"/>
+      <stop offset="73%" stop-color="#34266c"/>
+      <stop offset="100%" stop-color="#100f34"/>
+    </radialGradient>
+
+    <!-- ILUMINAÇÃO -->
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9fe9ff" stop-opacity=".8"/>
+      <stop offset="55%" stop-color="#8c5dff" stop-opacity=".3"/>
+      <stop offset="100%" stop-color="#462c9b" stop-opacity=".05"/>
+    </linearGradient>
+
+    <!-- ANÉIS -->
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#51d9ff"/>
+      <stop offset="35%" stop-color="#d5beff"/>
+      <stop offset="68%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#47c9ff"/>
+    </linearGradient>
+
+    <!-- EFEITO LUMINOSO -->
+    <filter id="glow" x="-100%" y="-100%"
+            width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+
+    <filter id="smallGlow" x="-100%" y="-100%"
+            width="300%" height="300%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+
+    <clipPath id="planetClip">
+      <circle cx="320" cy="320" r="145"/>
+    </clipPath>
+  </defs>
+
+  <!-- ATMOSFERA -->
+  <circle cx="320" cy="320" r="300" fill="url(#ambient)"/>
+
+  <!-- ESTRELAS -->
+  <g fill="#b6dcff">
+    <circle cx="105" cy="125" r="2" opacity=".9"/>
+    <circle cx="505" cy="110" r="2.5"/>
+    <circle cx="548" cy="240" r="1.8"/>
+    <circle cx="78" cy="335" r="1.6"/>
+    <circle cx="148" cy="485" r="2"/>
+    <circle cx="480" cy="535" r="2"/>
+    <circle cx="560" cy="470" r="1.4"/>
+    <circle cx="265" cy="75" r="1.5"/>
+    <circle cx="385" cy="90" r="1.8"/>
+    <circle cx="210" cy="560" r="1.7"/>
+    <circle cx="85" cy="225" r="1.2"/>
+    <circle cx="573" cy="348" r="1.5"/>
+  </g>
+
+  <!-- ESTRELAS BRILHANTES -->
+  <g stroke="#b1eaff" stroke-width="2"
+     stroke-linecap="round">
+    <path d="M110 170v16 M102 178h16"/>
+    <path d="M515 405v20 M505 415h20"/>
+    <path d="M435 85v12 M429 91h12"/>
+    <path d="M180 555v12 M174 561h12"/>
+  </g>
+
+  <!-- ÓRBITAS DE FUNDO -->
+  <g transform="rotate(-25 320 320)" fill="none">
+
+    <ellipse cx="320" cy="320"
+             rx="266" ry="94"
+             stroke="#784bff"
+             stroke-width="15"
+             opacity=".35"
+             filter="url(#glow)"/>
+
+    <ellipse cx="320" cy="320"
+             rx="266" ry="94"
+             stroke="url(#ring)"
+             stroke-width="5"
+             opacity=".85"/>
+
+    <ellipse cx="320" cy="320"
+             rx="287" ry="111"
+             stroke="#92caff"
+             stroke-width="1"
+             stroke-dasharray="8 13"
+             opacity=".50"/>
+
+    <ellipse cx="320" cy="320"
+             rx="235" ry="72"
+             stroke="#c6a3ff"
+             stroke-width="2"
+             opacity=".55"/>
+  </g>
+
+  <!-- BRILHO EXTERNO DO PLANETA -->
+  <circle cx="320" cy="320" r="160"
+          fill="#7c61ff"
+          opacity=".32"
+          filter="url(#glow)"/>
+
+  <!-- PLANETA -->
+  <circle cx="320" cy="320" r="145"
+          fill="url(#planet)"/>
+
+  <!-- TEXTURA DO PLANETA -->
+  <g clip-path="url(#planetClip)">
+
+    <ellipse cx="275" cy="228"
+             rx="160" ry="58"
+             transform="rotate(-24 275 228)"
+             fill="#b4c6ff"
+             opacity=".17"/>
+
+    <ellipse cx="390" cy="395"
+             rx="170" ry="58"
+             transform="rotate(-24 390 395)"
+             fill="#161447"
+             opacity=".32"/>
+
+    <path d="M170 285 Q280 220 465 300"
+          stroke="#d9d4ff"
+          stroke-width="17"
+          opacity=".10"
+          fill="none"/>
+
+    <path d="M180 365 Q340 300 475 360"
+          stroke="#28165e"
+          stroke-width="20"
+          opacity=".23"
+          fill="none"/>
+
+    <path d="M205 415 Q330 350 450 400"
+          stroke="#b7a5ff"
+          stroke-width="8"
+          opacity=".12"
+          fill="none"/>
+
+    <!-- REFLEXO -->
+    <ellipse cx="270" cy="250"
+             rx="102" ry="65"
+             transform="rotate(-35 270 250)"
+             fill="url(#shine)"
+             opacity=".55"/>
+  </g>
+
+  <!-- CONTORNO ILUMINADO -->
+  <circle cx="320" cy="320" r="145"
+          fill="none"
+          stroke="#a5b4ff"
+          stroke-width="2"
+          opacity=".65"/>
+
+  <!-- TRECHO DO ANEL EM PRIMEIRO PLANO -->
+  <g transform="rotate(-25 320 320)" fill="none">
+
+    <path d="M54 320 A266 94 0 0 0 586 320"
+          stroke="#895aff"
+          stroke-width="13"
+          opacity=".45"
+          filter="url(#glow)"/>
+
+    <path d="M54 320 A266 94 0 0 0 586 320"
+          stroke="url(#ring)"
+          stroke-width="5"
+          stroke-linecap="round"/>
+
+    <path d="M85 320 A235 72 0 0 0 555 320"
+          stroke="#d4baff"
+          stroke-width="2"
+          opacity=".8"/>
+  </g>
+
+  <!-- PARTÍCULAS LUMINOSAS -->
+  <g fill="#a3e7ff">
+    <circle cx="100" cy="415" r="5"
+            opacity=".6" filter="url(#smallGlow)"/>
+    <circle cx="100" cy="415" r="2.5"/>
+
+    <circle cx="535" cy="205" r="6"
+            opacity=".6" filter="url(#smallGlow)"/>
+    <circle cx="535" cy="205" r="3"/>
+
+    <circle cx="460" cy="520" r="4"
+            opacity=".6" filter="url(#smallGlow)"/>
+    <circle cx="460" cy="520" r="2"/>
+  </g>
+
+  <!-- DETALHES ORBITAIS -->
+  <g stroke="#8edbff" fill="none" opacity=".5">
+    <circle cx="320" cy="320" r="205"
+            stroke-width="1"
+            stroke-dasharray="2 17"/>
+    <circle cx="320" cy="320" r="230"
+            stroke-width=".5"
+            stroke-dasharray="1 24"/>
+  </g>
+
+</svg>
